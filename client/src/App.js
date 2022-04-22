@@ -6,6 +6,10 @@ import Addform from "./Pages/Addform";
 import Task from "./Pages/Task";
 import Timeentry from "./Pages/Timeentry";
 import ProjectList from "./Pages/ProjectList";
+import EmailVerify from "./components/Emailverify/Email";
+import ForgotPassword from "./components/Forgot/forgot";
+import PasswordReset from "./components/PasswordReset/Reset";
+import CardLayout from "./Pages/CardLayout";
 function App() {
 	 const user = localStorage.getItem("token");
 	return (
@@ -16,7 +20,10 @@ function App() {
 	 	    <Route path="/signup" exact element={<Signup />} />
 	      <Route path="/login" exact element={<Login />} />
 	 	 	<Route path="/" element={<Navigate replace to="/login" />} />
-		     <Route path="/PROJECT" element={<ProjectList />} />
+			  <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
+			<Route path="/forgot-password" element={<ForgotPassword />} />
+			<Route path="/password-reset/:id/:token" element={<PasswordReset />} />
+		     <Route path="/PROJECT" element={<CardLayout />} />
 			 <Route path="/TASK" element={<Task />} />
 			 <Route path="/TIMEENTRY" element={<Timeentry />} />
 		

@@ -16,5 +16,9 @@
 .head{
     
     margin-left: 0%;
-    font-size:medium;
+    font-size:large;
+}
+.form{
+    margin-top: 2%;
+    max-height: 55%;
 }

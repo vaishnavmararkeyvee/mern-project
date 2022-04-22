@@ -49,11 +49,16 @@ import Addform from "../../Pages/Addform";
 import Task from "../../Pages/Task";
 import ProjectList from "../../Pages/ProjectList";
 import Timeentry from "../../Pages/Timeentry";
+import CardLayout from "../../Pages/CardLayout";
 import { Route, Link, BrowserRouter, Routes } from "react-router-dom";
 
 
 
 const drawerWidth = 220;
+ 	const handleLogout = () => {
+   		localStorage.removeItem("token");
+   		window.location.reload();
+   	};
 
 const styles = theme => ({
   root: {
@@ -213,8 +218,8 @@ class MiniDrawer extends React.Component {
                 open={open}
                 onClose={this.handleClose}
               >
-                
-                <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+            
+                <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 
               </Menu>
             </div>
@@ -260,7 +265,7 @@ class MiniDrawer extends React.Component {
           <Typography paragraph></Typography>
 		  <Routes>
       
-            <Route exact path="/PROJECT"  element={<ProjectList />} /> 
+            <Route exact path="/PROJECT"  element={<CardLayout />} /> 
             <Route exact path="/TASK"  element={<Task />} />
             <Route exact path="/TIMEENTRY"  element={<Timeentry />} />
             
